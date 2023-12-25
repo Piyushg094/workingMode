@@ -1,0 +1,164 @@
+{  
+
+ ###########  DOM class 1 #################
+
+all this for search all value of code from anywhere
+
+keep in mind
+access elements:->
+document.getElementById();
+
+document.getElementByClassName();
+document.getElementByTagName();
+
+1. both method we use document object
+2.both method return multiple items
+3. the list returned is not an array
+
+
+trick to find 
+1. highlight that place 
+then write $0
+then that perticular element get fetch
+
+
+3.
+query selector methods
+
+1.documnet.querySelector('.text-textPara')
+return all the method of thst class
+
+2.document.querySelectorAll('.Hidden');
+return multiple element of the method 
+
+}  
+
+update existing content
+1. .innerHTML 
+        get an element/ 
+        set an element's HTML content
+2. outerHTML
+       it is for hmework
+3.textContent
+4.innerText
+
+    both work get /set textual content
+
+###########################
+adding new element/content
+
+1.  let content  = document.querySelector('.className');
+2   let newPara=document.createElement('p');
+3.  content.appendChild(newPara);
+
+then child will add at the end;
+
+
+###
+###  how to create textnode
+
+let content =document.querySelector('.piyush');
+
+let newPAra=document.createElement('p');
+
+let data=document.createTextNode('adasfas');
+
+newPAra.appendChild(data)
+
+content.appendChild(newPAra);
+
+
+
+##
+##
+insert HTML element
+ it has to be called with 2 argument 
+
+1. location-> beforebegin, afterbegin,geforeend,afterend;
+2. html text to be inserted
+
+let newText=document.createElement('h3')
+undefined
+newText.textContent='ABCDE'
+'ABCDE'
+content.insertAdjacentElement('beforebegin',newText);
+<h3>​ABCDE​</h3>​
+content.insertAdjacentElement('afterbegin',newText);
+<h3>​ABCDE​</h3>​
+content.insertAdjacentElement('beforeend',newText);
+<h3>​ABCDE​</h3>​
+
+
+##
+##  removeChild()
+
+opposite of appendChild()
+parent element
+the child element to remove
+
+let child=document.querySelector('.one');
+undefined
+child
+<p class=​"one">​adasfas​</p>​
+content.removeChild(child);
+<p class=​"one">​adasfas​</p>​
+let childA=document.querySelector('.two')
+undefined
+childA
+<h3 class=​"two">​ABCDE​</h3>​
+content.removeChild(childA)
+ 
+
+
+
+##
+## using java script change styling of element
+by css;
+
+
+
+######################################
+%_$$$$$$$$$$ 
+################
+
+browser events
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
