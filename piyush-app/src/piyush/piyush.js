@@ -711,39 +711,110 @@
 
   //############### using Api start#############
 
-let requestUrl='https://api.github.com/users/hiteshchoudhary'  
-let xhr= new XMLHttpRequest();
-xhr.open('GET',requestUrl)
-//console.log(xhr.readyState);
-xhr.onreadystatechange=function(){ //request track ho rhi h asyc kr rhe h callback ho rha h baar baar wps kaam pura ho rha h baar baar
-  if(xhr.readyState===4)
-  {
-    // console.log(this.responseText)
-    const data=JSON.parse(this.responseText); 
-    console.log(data)
-    console.log(data.avatar_url)
-    console.log(data.location)
+// let requestUrl='https://api.github.com/users/hiteshchoudhary'  
+// let xhr= new XMLHttpRequest();
+// xhr.open('GET',requestUrl)
+// //console.log(xhr.readyState);
+// xhr.onreadystatechange=function(){ //request track ho rhi h asyc kr rhe h callback ho rha h baar baar wps kaam pura ho rha h baar baar
+//   if(xhr.readyState===4)
+//   {
+//     // console.log(this.responseText)
+//     const data=JSON.parse(this.responseText); 
+//     console.log(data)
+//     console.log(data.avatar_url)
+//     console.log(data.location)
 
-    const photoChange=document.querySelector(".card__img")
-    const nameChange=document.querySelector('.card__header')
-    const exoloreBtn=document.querySelector('.card__btn')
-    const followChange=document.querySelector('.card__text')
+//     const photoChange=document.querySelector(".card__img")
+//     const nameChange=document.querySelector('.card__header')
+//     const exoloreBtn=document.querySelector('.card__btn')
+//     const followChange=document.querySelector('.card__text')
   
    
-    exoloreBtn.addEventListener('click',function(e){
-      e.preventDefault()
+//     exoloreBtn.addEventListener('click',function(e){
+//       e.preventDefault()
 
-    console.log(photoChange)
-    nameChange.innerHTML=data.name 
-    followChange.innerHTML=data.followers
-    photoChange.src='https://avatars.githubusercontent.com/u/11613311?v=4'
-    console.log(nameChange)
-    })
+//     console.log(photoChange)
+//     nameChange.innerHTML=data.name 
+//     followChange.innerHTML=data.followers
+//     photoChange.src='https://avatars.githubusercontent.com/u/11613311?v=4'
+//     console.log(nameChange)
+//     })
+//   }
+// //  console.log(xhr.readyState);
+// }
+
+// xhr.send()
+
+// promiseOne=  new Promise(function(resolve,reject){
+
+//   setTimeout(()=>{
+
+//     let error=true;
+//     if(!error)
+//     {
+//     console.log("async function is calling now days")
+//     resolve({user:'piyush',pass:'123'})
+//    }else{
+//     console.log("Error is here")
+//    }
+// },1000)
+    
+// }).then((response)=>{
+// console.log("process consumed")
+// return response
+// }).then((user)=>{
+//   console.log(user.user)
+//   console.log(user.pass)
+// }).catch((error)=>
+// {
+//   console.log(error);
+// }).finally(()=>{
+//   console.log("it will definetly run either error")
+// })
+
+
+// async function consumePromise(){
+
+//    try{
+//   const response= await promiseOne;
+//   console.log(response)
+//   console.log(response.user)
+//   console.log(response.pass)
+//    }catch(error)
+//    {
+//     console.log(error)
+//    }
+
+// }
+
+// ###########  API calling nowdays ##############
+async function callAllUsers(){
+  try{
+    const response=await fetch('https://randomuser.me/api/')
+    const data= await response.json()
+    console.log(data)
   }
-//  console.log(xhr.readyState);
+  catch(error){
+    console.log('Error',error)
+  }
 }
 
-xhr.send()
+callAllUsers()
+
+//############ second way ####################
+
+fetch('https://randomuser.me/api/')
+.then((response)=>{
+  return response.json()
+}).then((data)=>{
+  console.log(data)}).
+  catch((error)=>
+  {
+    console.error("return ",error)
+  })
+
+
+
 
 
 
