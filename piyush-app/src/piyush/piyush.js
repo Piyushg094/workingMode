@@ -709,9 +709,41 @@
 // }
 // )
 
+  //############### using Api start#############
+
+let requestUrl='https://api.github.com/users/hiteshchoudhary'  
+let xhr= new XMLHttpRequest();
+xhr.open('GET',requestUrl)
+//console.log(xhr.readyState);
+xhr.onreadystatechange=function(){ //request track ho rhi h asyc kr rhe h callback ho rha h baar baar wps kaam pura ho rha h baar baar
+  if(xhr.readyState===4)
+  {
+    // console.log(this.responseText)
+    const data=JSON.parse(this.responseText); 
+    console.log(data)
+    console.log(data.avatar_url)
+    console.log(data.location)
+
+    const photoChange=document.querySelector(".card__img")
+    const nameChange=document.querySelector('.card__header')
+    const exoloreBtn=document.querySelector('.card__btn')
+    const followChange=document.querySelector('.card__text')
   
+   
+    exoloreBtn.addEventListener('click',function(e){
+      e.preventDefault()
 
+    console.log(photoChange)
+    nameChange.innerHTML=data.name 
+    followChange.innerHTML=data.followers
+    photoChange.src='https://avatars.githubusercontent.com/u/11613311?v=4'
+    console.log(nameChange)
+    })
+  }
+//  console.log(xhr.readyState);
+}
 
+xhr.send()
 
 
 
